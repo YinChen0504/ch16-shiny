@@ -5,7 +5,16 @@ library(shiny)
 select_values <- colnames(mpg)
 
 # Create a shinyUI with a `fluidPage` layout
+my_ui <- fluidPage(
+  h1("MPG Dataset Visualization"),
+  selectInput("x_var", "X", select_values),
+  selectInput("y_var", "Y", select_values),
+  sliderInput("size", "set the size", 1, 100, 10),
+  selectInput("color", "select the color", list(blue = "blue", "green")),
+  plotOutput("scatter")
+)
 
+shinyUI(my_ui)
   # A page header
 
   
